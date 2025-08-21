@@ -9,26 +9,20 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0a0a0a" />
 
-    <!-- Open Graph (可先用相對路徑，之後再補 /og.jpg) -->
+    <!-- Open Graph（可之後補上 /og.jpg） -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="AI 寫實｜圖像與短片製作" />
     <meta property="og:description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。IG: ai_factory91。" />
     <meta property="og:image" content="/og.jpg" />
-
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="AI 寫實｜圖像與短片製作" />
     <meta name="twitter:description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。IG: ai_factory91。" />
     <meta name="twitter:image" content="/og.jpg" />
 
-    <!-- 結構化資料（簡化版） -->
+    <!-- 結構化資料（簡化） -->
     <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"Organization",
-      "name":"AI 寫實｜圖像與短片製作",
-      "sameAs":["https://www.instagram.com/ai_factory91/"]
-    }
+    {"@context":"https://schema.org","@type":"Organization","name":"AI 寫實｜圖像與短片製作","sameAs":["https://www.instagram.com/ai_factory91/"]}
     </script>
 
     <!-- Tailwind & Icons（CDN） -->
@@ -44,9 +38,9 @@
     </style>
   </head>
   <body class="bg-neutral-100">
-    <div class="min-h-screen w-full flex items-start justify-center py-10">
-      <!-- 行動裝置自適應：max-w 限寬 + w-full + mx-4 邊距 -->
-      <div class="max-w-[960px] w-full mx-4 bg-white rounded-2xl shadow-xl overflow-hidden border border-neutral-200">
+    <!-- 手機縮放 90%（md 以上恢復 100%） -->
+    <div class="min-h-screen w-full flex items-start justify-center bg-neutral-100 py-6 md:py-10 overflow-x-hidden">
+      <div class="max-w-[960px] w-full mx-2 md:mx-4 bg-white rounded-2xl shadow-xl overflow-hidden border border-neutral-200 md:scale-100 scale-90 origin-top">
 
         <!-- Header -->
         <div class="relative p-6 md:p-10 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700 text-white">
@@ -71,7 +65,7 @@
           </div>
         </div>
 
-        <!-- Price Cards -->
+        <!-- 單件計價 -->
         <div class="p-8">
           <div class="mb-5">
             <div class="text-xs tracking-widest uppercase text-neutral-500">簡單明確，買多少做多少</div>
@@ -128,7 +122,7 @@
             </div>
           </div>
 
-          <!-- Packages -->
+          <!-- 三個方案 -->
           <div class="mb-5 mt-10">
             <div class="text-xs tracking-widest uppercase text-neutral-500">入門到進階，直接選配</div>
             <h2 class="text-xl font-bold mt-1 text-neutral-900">三個方案（固定內容）</h2>
@@ -180,7 +174,7 @@
             超量加購：圖片 NT$299／張；短片（5–10 秒）NT$500／支；長相設定 NT$500／角色。
           </div>
 
-          <!-- Workflow & Terms -->
+          <!-- 流程與交付 -->
           <div class="mb-5 mt-10">
             <div class="text-xs tracking-widest uppercase text-neutral-500">讓你清楚知道每一步</div>
             <h2 class="text-xl font-bold mt-1 text-neutral-900">流程與交付</h2>
@@ -209,7 +203,7 @@
             </div>
           </div>
 
-          <!-- Notes -->
+          <!-- 條款與提醒 -->
           <div class="mt-8 p-5 rounded-xl bg-neutral-50 border border-neutral-200 text-sm leading-6">
             <div class="font-semibold mb-1">條款與提醒</div>
             <ul class="list-disc ml-5 grid gap-1">
@@ -240,10 +234,10 @@
     </div>
 
     <script>
-      // 啟用 Lucide 圖示
       document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
       });
     </script>
   </body>
 </html>
+
