@@ -2,11 +2,23 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>AI 寫實｜圖像與短片製作｜長相設定・圖片・短片</title>
     <meta name="description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。單圖 NT$299、短片 NT$500、長相設定 NT$500。A/B/C 方案可選，IG: ai_factory91。">
+    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#0a0a0a" />
+
+    <!-- Open Graph（可之後補一張 /og.jpg） -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI 寫實｜圖像與短片製作" />
+    <meta property="og:description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。IG: ai_factory91。" />
+    <meta property="og:image" content="/og.jpg" />
+
+    <!-- Tailwind & Icons（CDN） -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
       .bg-sheen{
         background-image:
@@ -16,12 +28,10 @@
     </style>
   </head>
   <body class="bg-neutral-100">
-    <!-- 外層視窗：預設不捲動；內容依環境自動縮放 -->
+    <!-- 外層視窗：手機不捲動；內容自動縮放以塞滿一個螢幕 -->
     <div id="viewport" class="min-h-screen w-full flex items-start justify-center bg-neutral-100 overflow-hidden">
-      <!-- 固定 960px 版心；三欄版型 -->
+      <!-- 固定寬度 960px（桌機原版寬），手機用 JS 依螢幕縮放 -->
       <div id="site" class="w-[960px] max-w-none mx-0 bg-white rounded-2xl shadow-xl overflow-hidden border border-neutral-200">
-        <!-- ===== 你的頁面內容從這裡開始（保留三欄） ===== -->
-
         <!-- Header -->
         <div class="relative p-8 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700 text-white">
           <div class="absolute inset-0 opacity-15 bg-sheen"></div>
@@ -45,7 +55,7 @@
           </div>
         </div>
 
-        <!-- 單件計價（三欄） -->
+        <!-- 單件計價（手機也保持三欄） -->
         <div class="p-8">
           <div class="mb-5">
             <div class="text-xs tracking-widest uppercase text-neutral-500">簡單明確，買多少做多少</div>
@@ -53,29 +63,148 @@
           </div>
 
           <div class="grid grid-cols-3 gap-5 items-stretch">
-            <!-- 這裡放三張卡（長相設定／圖片／短片）——你原本的內容照貼 -->
-            <!-- ... -->
+            <!-- 長相設定 -->
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700">
+                  <i data-lucide="user" class="w-5 h-5"></i>
+                </div>
+                <div class="font-semibold">長相設定</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$500／角色</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>臉部/妝容/氛圍說明</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>提示詞（prompt）1 套</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>樣張 1–2 張，含定稿</li>
+              </ul>
+            </div>
+
+            <!-- 圖片 -->
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700">
+                  <i data-lucide="camera" class="w-5 h-5"></i>
+                </div>
+                <div class="font-semibold">圖片</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$299／張</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>寫實質感修飾</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>1 次微調</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>4K JPG/PNG</li>
+              </ul>
+            </div>
+
+            <!-- 短片 -->
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700">
+                  <i data-lucide="video" class="w-5 h-5"></i>
+                </div>
+                <div class="font-semibold">短片 5–10 秒</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$500／支</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>1080p 輸出</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>1 次重生 + 1 次剪修</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>字幕/口白可加購</li>
+              </ul>
+            </div>
           </div>
 
-          <!-- 三個方案（三欄） -->
+          <!-- 三個方案（手機三欄） -->
           <div class="mb-5 mt-10">
             <div class="text-xs tracking-widest uppercase text-neutral-500">入門到進階，直接選配</div>
             <h2 class="text-xl font-bold mt-1 text-neutral-900">三個方案（固定內容）</h2>
           </div>
 
           <div class="grid grid-cols-3 gap-5 items-stretch">
-            <!-- 這裡放 A/B/C 三張卡 —— 你原本的內容照貼 -->
-            <!-- ... -->
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700"><i data-lucide="package" class="w-5 h-5"></i></div>
+                <div class="font-semibold">A 方案</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$2,999</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>長相設定</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>圖片 ×8</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>短片 5–10 秒 ×1</li>
+              </ul>
+            </div>
+
+            <div class="relative rounded-2xl border border-neutral-900 p-5 bg-white shadow-sm h-full">
+              <div class="absolute -top-3 right-4 text-[10px] tracking-widest uppercase bg-neutral-900 text-white px-2 py-1 rounded-full">最受歡迎</div>
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-900 text-white"><i data-lucide="package" class="w-5 h-5"></i></div>
+                <div class="font-semibold">B 方案</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$4,999</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>長相設定</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>圖片 ×20</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>短片 5–10 秒 ×3</li>
+              </ul>
+            </div>
+
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+              <div class="flex items-center gap-2">
+                <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700"><i data-lucide="package" class="w-5 h-5"></i></div>
+                <div class="font-semibold">C 方案</div>
+              </div>
+              <div class="mt-3 text-2xl font-bold">NT$6,999</div>
+              <ul class="mt-3 text-sm text-neutral-600 grid gap-1">
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>長相設定</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>圖片 ×50</li>
+                <li class="flex items-start gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 mt-0.5"></i>短片 5–10 秒 ×5</li>
+              </ul>
+            </div>
           </div>
 
           <div class="mt-4 text-sm text-neutral-600">
             超量加購：圖片 NT$299／張；短片（5–10 秒）NT$500／支；長相設定 NT$500／角色。
           </div>
 
-          <!-- （流程與條款若需要，維持四欄/多段即可） -->
-          <!-- ... -->
+          <!-- 流程與交付（維持四欄） -->
+          <div class="mb-5 mt-10">
+            <div class="text-xs tracking-widest uppercase text-neutral-500">讓你清楚知道每一步</div>
+            <h2 class="text-xl font-bold mt-1 text-neutral-900">流程與交付</h2>
+          </div>
 
-          <!-- CTA（黑色 IG 區塊） -->
+          <div class="grid grid-cols-4 gap-5 text-sm items-stretch">
+            <div class="rounded-2xl border border-neutral-200 p-4 bg-white h-full">
+              <div class="text-xs text-neutral-500">STEP 01</div>
+              <div class="font-semibold mt-0.5">需求確認</div>
+              <div class="text-neutral-600 mt-1">提供 2–3 張參考圖，確認場合、穿搭、氛圍與用途。</div>
+            </div>
+            <div class="rounded-2xl border border-neutral-200 p-4 bg-white h-full">
+              <div class="text-xs text-neutral-500">STEP 02</div>
+              <div class="font-semibold mt-0.5">確認付款</div>
+              <div class="text-neutral-600 mt-1">單件與方案皆需先付全額；確認入帳後排程製作。</div>
+            </div>
+            <div class="rounded-2xl border border-neutral-200 p-4 bg-white h-full">
+              <div class="text-xs text-neutral-500">STEP 03</div>
+              <div class="font-semibold mt-0.5">製作與回饋</div>
+              <div class="text-neutral-600 mt-1">圖片與短片 24 小時以內；含 1–2 次輕量修正。</div>
+            </div>
+            <div class="rounded-2xl border border-neutral-200 p-4 bg-white h-full">
+              <div class="text-xs text-neutral-500">STEP 04</div>
+              <div class="font-semibold mt-0.5">交付</div>
+              <div class="text-neutral-600 mt-1">圖片 4K、影片 1080p；可升級 4K。雲端連結一次打包。</div>
+            </div>
+          </div>
+
+          <!-- 條款與提醒 -->
+          <div class="mt-8 p-5 rounded-xl bg-neutral-50 border border-neutral-200 text-sm leading-6">
+            <div class="font-semibold mb-1">條款與提醒</div>
+            <ul class="list-disc ml-5 grid gap-1">
+              <li>內容範疇：不製作裸露、性行為或擦邊挑逗姿勢；可做泳裝、時尚棚拍、運動風等質感寫實。</li>
+              <li>授權：僅使用具商用權素材。</li>
+              <li>修正：圖片含 1 次微調；短片含 1 次重生 + 1 次剪修；重新生成（re-gen）算一次修正。</li>
+              <li>付款：單件與方案皆需先付全額。</li>
+            </ul>
+          </div>
+
+          <!-- CTA -->
           <div class="mt-8 flex items-center justify-between gap-4 p-6 rounded-2xl bg-neutral-900 text-white">
             <div>
               <div class="text-lg font-semibold">想開始了嗎？</div>
@@ -91,7 +220,6 @@
 
           <div class="mt-5 text-center text-xs text-neutral-500">＊以上為售價與服務說明，可依專案規模與需求彈性調整。</div>
         </div>
-        <!-- ===== 你的頁面內容到這裡結束 ===== -->
       </div>
     </div>
 
@@ -99,75 +227,30 @@
       // 啟用圖示
       document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
 
-      // 是否為 LINE 內建瀏覽器
-      function isLineApp(){
-        const ua = navigator.userAgent || navigator.vendor || "";
-        return /Line/i.test(ua);
-      }
-
-      // 取得更穩的可視寬高（不同引擎取最小值，避免回報過大）
-      function getViewportWidth(){
-        const cand = [];
-        if (window.visualViewport && window.visualViewport.width) cand.push(window.visualViewport.width);
-        cand.push(window.innerWidth, document.documentElement.clientWidth, screen.width / (window.devicePixelRatio || 1));
-        return Math.min.apply(null, cand.filter(Boolean));
-      }
-      function getViewportHeight(){
-        const cand = [];
-        if (window.visualViewport && window.visualViewport.height) cand.push(window.visualViewport.height);
-        cand.push(window.innerHeight, document.documentElement.clientHeight, screen.height / (window.devicePixelRatio || 1));
-        return Math.min.apply(null, cand.filter(Boolean));
-      }
-
-      // 自動縮放（手機三欄；一般瀏覽器一屏不捲動，LINE 以寬度為主並留邊距）
-      function fitToScreen(){
+      // 手機自動等比縮放：把 960px 寬的版面縮到剛好塞進螢幕（同時考慮寬與高）
+      function fitToScreen() {
         const site = document.getElementById('site');
         const viewport = document.getElementById('viewport');
-        if(!site || !viewport) return;
+        if (!site || !viewport) return;
 
-        // 桌機：不縮放
+        // 僅在小螢幕啟用（<= 767px）
         const isMobile = window.matchMedia('(max-width: 767px)').matches;
         site.style.transformOrigin = 'top center';
-        if(!isMobile){
+        if (isMobile) {
+          // 先還原，取得真實尺寸
           site.style.transform = 'scale(1)';
-          document.body.style.overflow = '';
-          viewport.style.height = '';
-          return;
-        }
-
-        // 手機：先還原再量測
-        site.style.transform = 'scale(1)';
-        const siteWidth = 960; // 固定版心寬
-        const vw = getViewportWidth();
-        const vh = getViewportHeight();
-
-        // 預留邊距（避免貼邊、LINE 上方工具列壓縮）
-        const sidePadding = 16; // 左右保留 16px
-        const topBottomPadding = 20;
-
-        const wScale = (vw - sidePadding * 2) / siteWidth;
-        const hScale = (vh - topBottomPadding * 2) / site.offsetHeight;
-
-        let s;
-        if (isLineApp()){
-          // LINE：以「寬度」為主的縮放 + 額外 0.92 系數，避免太擠
-          s = Math.min(wScale * 0.92, 1);
-          document.body.style.overflow = 'auto';   // 高度允許捲動
-          viewport.style.height = '';               // 不鎖高
-          viewport.style.padding = topBottomPadding + 'px ' + sidePadding + 'px';
-        }else{
-          // 一般瀏覽器：寬/高都要塞進一屏
-          s = Math.min(wScale, hScale, 1);
+          const wScale = window.innerWidth / site.offsetWidth;
+          const hScale = window.innerHeight / site.offsetHeight;
+          const s = Math.min(wScale, hScale, 1); // 不放大，只縮小
+          site.style.transform = `scale(${s})`;
+          viewport.style.height = window.innerHeight + 'px';
           document.body.style.overflow = 'hidden'; // 不可捲動
-          viewport.style.height = vh + 'px';
-          viewport.style.padding = topBottomPadding + 'px ' + sidePadding + 'px';
+        } else {
+          site.style.transform = 'scale(1)';
+          viewport.style.height = '';
+          document.body.style.overflow = '';
         }
-
-        // 防呆：不要小於 0.6（太小會看不清）
-        s = Math.max(s, 0.6);
-        site.style.transform = `scale(${s})`;
       }
-
       window.addEventListener('load', fitToScreen);
       window.addEventListener('resize', fitToScreen);
     </script>
