@@ -1,4 +1,4 @@
-<!doctype html>
+<<!doctype html>
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
     <!-- Open Graph（可之後補一張 /og.jpg） -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="AI 寫實｜圖像與短片製作" />
-    <meta property="og:description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。IG: ai_factory91。" />
+    <meta property="og:description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。IG: ai_factory91。單圖 NT$250。" />
     <meta property="og:image" content="/og.jpg" />
 
     <!-- Tailwind & Icons（CDN） -->
@@ -28,9 +28,9 @@
     </style>
   </head>
   <body class="bg-neutral-100">
-    <!-- 外層視窗：手機不捲動；內容自動縮放以塞滿一個螢幕 -->
+    <!-- 外層視窗 -->
     <div id="viewport" class="min-h-screen w-full flex items-start justify-center bg-neutral-100 overflow-hidden">
-      <!-- 固定寬度 960px（桌機原版寬），手機用 JS 依螢幕縮放 -->
+      <!-- 固定寬度 960px，手機以 transform 等比縮放 -->
       <div id="site" class="w-[960px] max-w-none mx-0 bg-white rounded-2xl shadow-xl overflow-hidden border border-neutral-200">
         <!-- Header -->
         <div class="relative p-8 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-700 text-white">
@@ -55,7 +55,7 @@
           </div>
         </div>
 
-        <!-- 單件計價（手機也保持三欄） -->
+        <!-- 單件計價（三欄） -->
         <div class="p-8">
           <div class="mb-5">
             <div class="text-xs tracking-widest uppercase text-neutral-500">簡單明確，買多少做多少</div>
@@ -79,7 +79,7 @@
               </ul>
             </div>
 
-            <!-- 圖片 -->
+            <!-- 圖片（250） -->
             <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
               <div class="flex items-center gap-2">
                 <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700">
@@ -112,7 +112,7 @@
             </div>
           </div>
 
-          <!-- 三個方案（手機三欄） -->
+          <!-- 三個方案（三欄） -->
           <div class="mb-5 mt-10">
             <div class="text-xs tracking-widest uppercase text-neutral-500">入門到進階，直接選配</div>
             <h2 class="text-xl font-bold mt-1 text-neutral-900">三個方案（固定內容）</h2>
@@ -161,10 +161,10 @@
           </div>
 
           <div class="mt-4 text-sm text-neutral-600">
-            超量加購：圖片 NT$299／張；短片（5–10 秒）NT$500／支；長相設定 NT$500／角色。
+            超量加購：圖片 NT$250／張；短片（5–10 秒）NT$500／支；長相設定 NT$500／角色。
           </div>
 
-          <!-- 流程與交付（維持四欄） -->
+          <!-- 流程與交付（四欄） -->
           <div class="mb-5 mt-10">
             <div class="text-xs tracking-widest uppercase text-neutral-500">讓你清楚知道每一步</div>
             <h2 class="text-xl font-bold mt-1 text-neutral-900">流程與交付</h2>
@@ -227,32 +227,46 @@
       // 啟用圖示
       document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
 
-      // 手機自動等比縮放：把 960px 寬的版面縮到剛好塞進螢幕（同時考慮寬與高）
+      // 取得較準的可視寬度（避免工具列影響）
+      function getVW() {
+        return (window.visualViewport && window.visualViewport.width) || window.innerWidth;
+      }
+
+      // 手機依「寬度」等比縮放（高度允許捲動），避免看起來太窄
       function fitToScreen() {
         const site = document.getElementById('site');
         const viewport = document.getElementById('viewport');
         if (!site || !viewport) return;
 
-        // 僅在小螢幕啟用（<= 767px）
         const isMobile = window.matchMedia('(max-width: 767px)').matches;
         site.style.transformOrigin = 'top center';
-        if (isMobile) {
-          // 先還原，取得真實尺寸
-          site.style.transform = 'scale(1)';
-          const wScale = window.innerWidth / site.offsetWidth;
-          const hScale = window.innerHeight / site.offsetHeight;
-          const s = Math.min(wScale, hScale, 1); // 不放大，只縮小
-          site.style.transform = `scale(${s})`;
-          viewport.style.height = window.innerHeight + 'px';
-          document.body.style.overflow = 'hidden'; // 不可捲動
-        } else {
+
+        if (!isMobile) {
           site.style.transform = 'scale(1)';
           viewport.style.height = '';
           document.body.style.overflow = '';
+          return;
         }
+
+        // 以寬度為主，左右留一點邊距
+        const vw = getVW();
+        const siteWidth = 960;
+        let s = (vw - 24) / siteWidth;   // 左右各留 ~12px
+        s = Math.min(Math.max(s, 0.6), 1); // 不放大，最小不小於 0.6
+
+        site.style.transform = `scale(${s})`;
+        viewport.style.height = '';           // 允許捲動
+        document.body.style.overflow = 'auto';
       }
+
       window.addEventListener('load', fitToScreen);
       window.addEventListener('resize', fitToScreen);
+      window.addEventListener('orientationchange', fitToScreen);
+      if (window.visualViewport) {
+        visualViewport.addEventListener('resize', fitToScreen);
+        visualViewport.addEventListener('scroll', fitToScreen);
+      }
     </script>
   </body>
 </html>
+
