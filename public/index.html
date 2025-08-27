@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>AI 寫實｜圖像與短片製作｜長相設定・圖片・短片</title>
-    <meta name="description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。圖片組更划算，另有 A/B/C 方案可選。IG: ai_factory91。">
+    <meta name="description" content="長相設定、AI 寫實圖片與 5–10 秒短片，24 小時內交付。圖片組更划算（20/45/70 張），另有 A/B/C 方案。IG: ai_factory91。">
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0a0a0a" />
 
     <!-- Open Graph（可之後補一張 /og.jpg） -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="AI 寫實｜圖像與短片製作" />
-    <meta property="og:description" content="圖片組更划算：20/45/70 張。另有 A/B/C 方案可選。IG: ai_factory91。" />
+    <meta property="og:description" content="圖片組更划算：20/45/70 張。另有 A/B/C 方案。IG: ai_factory91。" />
     <meta property="og:image" content="/og.jpg" />
 
     <!-- Tailwind & Icons（CDN） -->
@@ -128,7 +128,7 @@
             </div>
 
             <div class="relative rounded-2xl border border-neutral-900 p-5 bg-white shadow-sm h-full">
-              <div class="absolute -top-3 right-4 text-[10px] tracking-widest uppercase bg-neutral-900 text白 px-2 py-1 rounded-full">最受歡迎</div>
+              <div class="absolute -top-3 right-4 text-[10px] tracking-widest uppercase bg-neutral-900 text-white px-2 py-1 rounded-full">最受歡迎</div>
               <div class="flex items-center gap-2">
                 <div class="p-2 rounded-xl bg-neutral-900 text-white"><i data-lucide="package" class="w-5 h-5"></i></div>
                 <div class="font-semibold">B 方案</div>
@@ -141,7 +141,7 @@
               </ul>
             </div>
 
-            <div class="relative rounded-2xl border border-neutral-200 p-5 bg-white shadow-sm h-full">
+            <div class="relative rounded-2xl border border-neutral-200 p-5 bg白 shadow-sm h-full">
               <div class="flex items-center gap-2">
                 <div class="p-2 rounded-xl bg-neutral-100 text-neutral-700"><i data-lucide="package" class="w-5 h-5"></i></div>
                 <div class="font-semibold">C 方案</div>
@@ -199,15 +199,16 @@
             </ul>
           </div>
 
-          <!-- CTA -->
-          <div class="mt-8 flex items-center justify-between gap-4 p-6 rounded-2xl bg-neutral-900 text-white"
+          <!-- CTA（已固定 text-white） -->
+          <div class="mt-8 flex items-center justify-between gap-4 p-6 rounded-2xl bg-neutral-900 text-white">
             <div>
               <div class="text-lg font-semibold">想開始了嗎？</div>
               <div class="text-sm opacity-90">丟 2–3 張參考圖與你的目標平台，我今天就幫你排程。</div>
             </div>
             <div class="flex items-center gap-3">
               <i data-lucide="instagram" class="w-10 h-10"></i>
-              <a href="https://www.instagram.com/ai_factory91/" target="_blank" rel="noopener" class="text-2xl font-bold tracking-wide underline underline-offset-4">
+              <a href="https://www.instagram.com/ai_factory91/" target="_blank" rel="noopener"
+                 class="text-2xl font-bold tracking-wide underline underline-offset-4 text-white">
                 IG:ai_factory91
               </a>
             </div>
@@ -250,7 +251,7 @@
         s = Math.max(s, 0.6);         // 下限避免過小
 
         site.style.transform = `scale(${s})`;
-        viewport.style.height = '';           // 高度允許捲動
+        viewport.style.height = '';   // 高度允許捲動
         document.body.style.overflow = 'auto';
       }
 
@@ -264,3 +265,4 @@
     </script>
   </body>
 </html>
+
