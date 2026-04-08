@@ -2,9 +2,8 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>官方LINE加入頁</title>
-  <meta name="description" content="立即加入官方 LINE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>官方 LINE 加入頁</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,124 +14,81 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      min-height: 100%;
       background: #000;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      overflow-x: hidden;
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
     }
 
     body {
       display: flex;
       justify-content: center;
-      align-items: center;
-    }
-
-    .page {
-      width: 100%;
+      align-items: flex-start;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      background: #000;
     }
 
-    .hero {
+    .wrap {
       position: relative;
       width: 100%;
       max-width: 768px;
       margin: 0 auto;
       line-height: 0;
-      overflow: hidden;
-      background: #000;
     }
 
-    .hero img {
+    .main-img {
       width: 100%;
       height: auto;
       display: block;
     }
 
-    /* 這個是蓋在圖片「立即加入」按鈕上的可點擊區域 */
-    .join-hitbox {
+    /* 蓋在「立即加入」按鈕上的可點擊區域 */
+    .join-btn {
       position: absolute;
-      left: 27%;
-      width: 46%;
-      bottom: 8.8%;
-      height: 8.8%;
-      display: block;
+      left: 26.5%;
+      bottom: 8.2%;
+      width: 47%;
+      height: 9%;
       border-radius: 999px;
-      text-decoration: none;
-      animation: floatY 2.2s ease-in-out infinite;
-      transform-origin: center;
+      display: block;
+      animation: floatY 2s ease-in-out infinite;
     }
 
-    /* 做一層柔和發光，讓按鈕更有活感 */
-    .join-hitbox::before {
+    .join-btn::before {
       content: "";
       position: absolute;
       inset: 0;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.18),
-        0 0 18px rgba(255, 215, 120, 0.20);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .join-hitbox:active::before {
+    .join-btn:active::before {
       transform: scale(0.97);
-      box-shadow:
-        0 4px 14px rgba(0, 0, 0, 0.16),
-        0 0 10px rgba(255, 215, 120, 0.15);
-      background: rgba(255, 255, 255, 0.14);
+      background: rgba(255,255,255,0.12);
     }
 
     @keyframes floatY {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-6px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    /* 平板 */
-    @media (min-width: 768px) {
-      .join-hitbox {
-        left: 27.5%;
-        width: 45%;
-        bottom: 8.7%;
-        height: 8.5%;
-      }
-    }
-
-    /* 小手機微調 */
-    @media (max-width: 420px) {
-      .join-hitbox {
-        left: 26.5%;
-        width: 47%;
-        bottom: 8.4%;
-        height: 9%;
-      }
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <img src="jfw_now.png" alt="立即加入官方LINE" />
+  <div class="wrap">
+    <img
+      class="main-img"
+      src="93955d48-0faa-495f-aad7-2f1028c63ad5.png"
+      alt="立即加入官方LINE"
+    />
 
-      <a
-        class="join-hitbox"
-        href="https://lin.ee/n4TsW6i"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="立即加入官方LINE"
-      ></a>
-    </section>
-  </main>
+    <a
+      class="join-btn"
+      href="https://lin.ee/n4TsW6i"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="立即加入官方LINE"
+    ></a>
+  </div>
 </body>
 </html>
